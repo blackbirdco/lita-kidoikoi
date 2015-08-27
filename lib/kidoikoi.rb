@@ -1,0 +1,3 @@
+class Kidoikoi
+
+end
