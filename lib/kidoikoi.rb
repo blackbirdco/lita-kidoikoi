@@ -11,7 +11,7 @@ class Kidoikoi
     total_people = debtors.length + 1
     amount = calcul_amount(total_value, total_people)
 
-    debtors.each do |debtor| 
+    debtors.each do |debtor|
       add_amount_to_debt_between(debtor, creditor, amount)
     end
   end
@@ -22,7 +22,9 @@ class Kidoikoi
   end
 
   def debts_of(user)
-    database.get(user) || {}
+    debts = database.get(user) || {}
+    debts = eval(debts) if debts.is_a? String
+    debts
   end
 
   alias_method :resume_debt, :debts_of
@@ -43,9 +45,9 @@ class Kidoikoi
     add_debt(amount, from: creditor, to: debtor)
   end
 
-  def add_debt(amount, args={})
-    user = args.fetch :from
-    to_other_user = args.fetch :to
+  def add_debt(amount, users={})
+    user = users.fetch :from
+    to_other_user = users.fetch :to
 
     user_debts = debts_of(user)
     user_debts[to_other_user] = calcul_debt_value(user_debts[to_other_user], amount)
@@ -57,9 +59,9 @@ class Kidoikoi
     debt_value += amount
   end
 
-  def delete_debt(args={})
-    user = args.fetch :from
-    other_user = args.fetch :to
+  def delete_debt(users={})
+    user = users.fetch :from
+    other_user = users.fetch :to
 
     user_debts = debts_of(user)
     user_debts.delete(other_user)
