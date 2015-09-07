@@ -17,8 +17,8 @@ class Kidoikoi
   end
 
   def clear_debt_between(user1, user2)
-    delete_debt(from: user1, to: user2)
-    delete_debt(from: user2, to: user1)
+    delete_debt(user_from: user1, user_to: user2)
+    delete_debt(user_from: user2, user_to: user1)
   end
 
   def debts_of(user)
@@ -41,17 +41,14 @@ class Kidoikoi
   end
 
   def add_amount_to_debt_between(debtor, creditor, amount)
-    add_debt(-amount, from: debtor, to: creditor)
-    add_debt(amount, from: creditor, to: debtor)
+    add_debt(-amount, user_from: debtor, user_to: creditor)
+    add_debt(amount, user_from: creditor, user_to: debtor)
   end
 
-  def add_debt(amount, users={})
-    user = users.fetch :from
-    to_other_user = users.fetch :to
-
-    user_debts = debts_of(user)
-    user_debts[to_other_user] = calcul_debt_value(user_debts[to_other_user], amount)
-    database.set(user, user_debts)
+  def add_debt(amount, user_from: nil, user_to: nil)
+    user_debts = debts_of(user_from)
+    user_debts[user_to] = calcul_debt_value(user_debts[user_to], amount)
+    database.set(user_from, user_debts)
   end
 
   def calcul_debt_value(debt_value, amount)
@@ -59,12 +56,9 @@ class Kidoikoi
     debt_value += amount
   end
 
-  def delete_debt(users={})
-    user = users.fetch :from
-    other_user = users.fetch :to
-
-    user_debts = debts_of(user)
-    user_debts.delete(other_user)
-    database.set(user, user_debts)
+  def delete_debt(user_from: nil, user_to: nil)
+    user_debts = debts_of(user_from)
+    user_debts.delete(user_to)
+    database.set(user_from, user_debts)
   end
 end

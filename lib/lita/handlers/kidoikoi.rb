@@ -8,7 +8,8 @@ module Lita
       route(
         /^kidoikoi (split_bill_between (\@[^\s]+ )+[\d]+.?[\d]{0,2} \@[^\s]+|resume_debt \@[^\s]+|clear_debt_between \@[^\s]+ \@[^\s]+)$/,
         :kidoikoi, command: true, help: {
-          "kidoikoi" => "Split bill between coworkers:\n
+          "kidoikoi" => "Splitting bills between coworkers\n
+          \"Kidoikoi\" is for \"qui doit quoi\", which means in french \"who owes what\".\n
           Commands:\n
           *kidoikoi split_bill_between*  _@debtor1_ _..._ _value_ _@creditor_\n
           *kidoikoi clear_debt_between* _@user1_ _@user2_ \n

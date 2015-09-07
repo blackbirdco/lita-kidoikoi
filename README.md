@@ -15,10 +15,12 @@ Add lita-kidoikoi to your Lita instance's Gemfile:
 gem "lita-kidoikoi"
 ```
 
-## Configuration
-
-TODO: Describe any configuration attributes the plugin exposes.
-
 ## Usage
 
-TODO: Describe the plugin's features and how to use them.
+**Commands:**
+
+**kidoikoi** **split\_bill\_between**  _@debtor1..._ _value_ _@creditor_
+
+**kidoikoi** **clear\_debt\_between** _@user1_ _@user2_
+
+**kidoikoi** **resume\_debt** _@user_
