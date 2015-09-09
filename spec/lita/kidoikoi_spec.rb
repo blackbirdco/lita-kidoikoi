@@ -12,9 +12,9 @@ describe Kidoikoi do
   describe "#split_bill_between" do
     subject { kidoikoi.split_bill_between(debtors, amount, creditor) }
 
-    let(:debtors) {["Sacha", "PG"]}
-    let(:amount) {9}
-    let(:creditor) {"Loic"}
+    let(:debtors) { ["Sacha", "PG"] }
+    let(:amount) { 9 }
+    let(:creditor) { "Loic" }
 
     context "when there is no debt relation between users" do
       before do
@@ -31,7 +31,7 @@ describe Kidoikoi do
       end
 
       context "when Sacha is a debitor twice" do
-        let(:debtors) {["Sacha", "Sacha", "PG"]}
+        let(:debtors) { ["Sacha", "Sacha", "PG"] }
 
         it "counts Sacha as a debitor just once" do
           subject
@@ -42,7 +42,7 @@ describe Kidoikoi do
       end
 
       context "when Loic is the creditor and one debtor" do
-        let(:debtors) {["Sacha", "PG", "Loic"]}
+        let(:debtors) { ["Sacha", "PG", "Loic"] }
 
         it "does not count Loic as a debtor" do
           subject
@@ -61,7 +61,7 @@ describe Kidoikoi do
       end
 
       context "when Sacha and Pg split a 23.50 euros bill with Loic" do
-        let(:amount) {23.50}
+        let(:amount) { 23.50 }
 
         it "adds 7.83 to Sacha's and Pg's debt to Loic" do
           subject

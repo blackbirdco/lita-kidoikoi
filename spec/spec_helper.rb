@@ -6,6 +6,8 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 ]
 SimpleCov.start { add_filter "/spec/" }
 
+require "fakeredis"
+
 require "lita-kidoikoi"
 require "lita/rspec"
 

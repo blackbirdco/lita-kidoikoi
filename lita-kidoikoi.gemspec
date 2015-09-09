@@ -6,9 +6,9 @@ Gem::Specification.new do |spec|
   spec.description   = "A plugin for splitting bills between coworkers.
                         \"Kidoikoi\" is for \"qui doit quoi\", which means in french \"who owes what\"."
   spec.summary       = "Commands:\n
-                        *kidoikoi split_bill_between*  _@debtor1_ _..._ _value_ _@creditor_\n
-                        *kidoikoi clear_debt_between* _@user1_ _@user2_ \n
-                        *kidoikoi resume_debt* _@user1_"
+                        *split_bill*  _@debtor1_ _..._ _value_ _@creditor_\n
+                        *clear_debt* _@user1_ _@user2_ \n
+                        *resume_debt* _@user1_"
   spec.homepage      = "https://github.com/sal-himd/lita-kidoikoi"
   spec.license       = "Licence MIT"
   spec.metadata      = { "lita_plugin_type" => "handler" }

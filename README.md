@@ -17,10 +17,22 @@ gem "lita-kidoikoi"
 
 ## Usage
 
-**Commands:**
+###Commands:
 
-**kidoikoi** **split\_bill\_between**  _@debtor1..._ _value_ _@creditor_
+####split\_bill:
 
-**kidoikoi** **clear\_debt\_between** _@user1_ _@user2_
+`split_bill @DEBTOR1... VALUE @CREDITOR`
 
-**kidoikoi** **resume\_debt** _@user_
+Split a bill of the specified value between one ore more debtors and one creditor.
+
+####clear\_debt\_between:
+
+`clear_debt @USER1 @USER2`
+
+Clear mutual debt of two users.
+
+####resume\_debt:
+
+`resume_debt @USER`
+
+Resume debt of one user.
