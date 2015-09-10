@@ -21,18 +21,18 @@ gem "lita-kidoikoi"
 
 ####split\_bill:
 
-`split_bill @DEBTOR1... VALUE @CREDITOR`
+`split bill @DEBTOR1... VALUE @CREDITOR`
 
 Split a bill of the specified value between one ore more debtors and one creditor.
 
 ####clear\_debt\_between:
 
-`clear_debt @USER1 @USER2`
+`clear debt between @USER1 @USER2`
 
 Clear mutual debt of two users.
 
-####resume\_debt:
+####resume\_debt\_of:
 
-`resume_debt @USER`
+`resume debt of @USER`
 
 Resume debt of one user.
